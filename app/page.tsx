@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { Header } from "@/components/Header";
 import {
   AudienceSection,
   BenefitsSection,
@@ -22,6 +23,8 @@ export default function Page() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
+      <div id="top" />
+      <Header />
       <main>
         <Hero />
         <ManifestoSection />
