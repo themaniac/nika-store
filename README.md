@@ -11,6 +11,16 @@ npm run dev
 
 La variabile `NEXT_PUBLIC_SITE_URL` deve contenere il dominio canonico di produzione su Vercel.
 
+## Deploy su Vercel
+
+- Framework Preset: Next.js
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output Directory: configurazione automatica di Next.js
+- Environment Variable: `NEXT_PUBLIC_SITE_URL` con il dominio finale, incluso `https://` e senza slash finale
+
+Le anteprime Vercel possono lasciare la variabile non impostata: Next.js userà l’URL di produzione esposto da Vercel. Prima dell’indicizzazione pubblica, il dominio definitivo deve essere configurato in `NEXT_PUBLIC_SITE_URL`.
+
 ## Fotografie
 
 Le immagini editoriali sono segnaposto indicativi e non rappresentano capi già disponibili in negozio.
