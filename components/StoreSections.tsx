@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa6";
 
 import { Brand } from "@/components/Brand";
+import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/data/site";
 
 export function Marquee() {
@@ -26,7 +27,7 @@ export function ManifestoSection() {
   return (
     <section className="manifesto section-shell" id="stile">
       <div className="section-kicker">La nostra idea di stile</div>
-      <div className="manifesto__grid">
+      <Reveal className="manifesto__grid">
         <p className="manifesto__lead">
           Vestirsi bene deve essere
           <br />
@@ -43,7 +44,7 @@ export function ManifestoSection() {
             quello che serve per sentirti a tuo agio nel tuo stile.
           </p>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -57,31 +58,32 @@ export function AudienceSection() {
       </div>
       <div className="audiences__grid">
         {siteConfig.audiences.map((audience, index) => (
-          <article
-            className={`audience-card audience-card--${audience.slug}`}
-            key={audience.slug}
-          >
-            <div className="audience-card__media">
-              <Image
-                src={audience.image}
-                alt={audience.imageAlt}
-                fill
-                sizes="(max-width: 767px) 92vw, 42vw"
-              />
-              <span className="audience-card__index" aria-hidden="true">
-                0{index + 1}
-              </span>
-            </div>
-            <div className="audience-card__copy">
-              <p className="eyebrow">{audience.eyebrow}</p>
-              <h3>{audience.title}</h3>
-              <p>{audience.copy}</p>
-              <a href="#novita" className="text-link">
-                Scopri il mondo NiKa
-                <FaArrowRightLong aria-hidden="true" />
-              </a>
-            </div>
-          </article>
+          <Reveal delay={index * 100} key={audience.slug}>
+            <article
+              className={`audience-card audience-card--${audience.slug}`}
+            >
+              <div className="audience-card__media">
+                <Image
+                  src={audience.image}
+                  alt={audience.imageAlt}
+                  fill
+                  sizes="(max-width: 767px) 92vw, 42vw"
+                />
+                <span className="audience-card__index" aria-hidden="true">
+                  0{index + 1}
+                </span>
+              </div>
+              <div className="audience-card__copy">
+                <p className="eyebrow">{audience.eyebrow}</p>
+                <h3>{audience.title}</h3>
+                <p>{audience.copy}</p>
+                <a href="#novita" className="text-link">
+                  Scopri il mondo NiKa
+                  <FaArrowRightLong aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
       <p className="image-disclaimer">
@@ -104,12 +106,14 @@ export function BenefitsSection() {
           </h2>
         </div>
         <div className="benefits__grid">
-          {siteConfig.benefits.map((benefit) => (
-            <article className="benefit" key={benefit.number}>
-              <span>{benefit.number}</span>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.copy}</p>
-            </article>
+          {siteConfig.benefits.map((benefit, index) => (
+            <Reveal delay={index * 70} key={benefit.number}>
+              <article className="benefit">
+                <span>{benefit.number}</span>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.copy}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -121,7 +125,7 @@ export function OpeningSection() {
   return (
     <section className="opening" id="novita" aria-labelledby="opening-title">
       <Marquee />
-      <div className="opening__inner section-shell">
+      <Reveal className="opening__inner section-shell">
         <p className="eyebrow">Ci siamo quasi</p>
         <h2 id="opening-title">
           Qualcosa di nuovo
@@ -153,7 +157,7 @@ export function OpeningSection() {
             WhatsApp
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -161,7 +165,7 @@ export function OpeningSection() {
 export function LocationSection() {
   return (
     <section className="location section-shell" id="negozio">
-      <div className="location__media">
+      <Reveal className="location__media">
         <Image
           src="/images/store-exterior.jpeg"
           alt="Esterno di NiKa Store in Corso Italia 121 a Sambuceto"
@@ -169,8 +173,8 @@ export function LocationSection() {
           sizes="(max-width: 767px) 92vw, 57vw"
         />
         <span className="location__label">Qui nasce NiKa</span>
-      </div>
-      <div className="location__copy">
+      </Reveal>
+      <Reveal className="location__copy" delay={120}>
         <p className="eyebrow">Vieni a trovarci</p>
         <h2>Nel cuore di Sambuceto.</h2>
         <address>
@@ -193,7 +197,7 @@ export function LocationSection() {
           Apri in Google Maps
           <FaArrowRightLong aria-hidden="true" />
         </a>
-      </div>
+      </Reveal>
     </section>
   );
 }

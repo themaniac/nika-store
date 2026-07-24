@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaArrowRightLong, FaLocationDot, FaWhatsapp } from "react-icons/fa6";
 
+import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/data/site";
 
 export function Hero() {
@@ -9,7 +10,7 @@ export function Hero() {
       <div className="hero__ornament" aria-hidden="true">
         01
       </div>
-      <div className="hero__copy">
+      <Reveal className="hero__copy">
         <p className="eyebrow hero__eyebrow">
           <span aria-hidden="true" />
           {siteConfig.opening.label} · Sambuceto
@@ -51,8 +52,8 @@ export function Hero() {
             <small>66020 Sambuceto (CH)</small>
           </span>
         </address>
-      </div>
-      <div className="hero__visual">
+      </Reveal>
+      <Reveal className="hero__visual" delay={140}>
         <div className="hero__image-shell">
           <Image
             src="/images/editorial-hero.jpg"
@@ -66,7 +67,7 @@ export function Hero() {
           <span>NiKa</span>
           <small>Store · Sambuceto</small>
         </div>
-      </div>
+      </Reveal>
       <p className="hero__side-note" aria-hidden="true">
         Casual wear · Donna &amp; Uomo
       </p>
